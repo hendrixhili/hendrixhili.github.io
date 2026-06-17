@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kun Pang (Hendrix) — RFIC / Photonics</title>
+<meta name="description" content="Kun Pang (Hendrix) — Incoming Ph.D. Student in ECE at the University of Virginia. Research in RFIC design, integrated photonics, and millimeter-wave systems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1f3a5f;
+    --navy-soft:#33527a;
+    --ink:#1a1d22;
+    --muted:#5c636e;
+    --line:#e2e5ea;
+    --bg:#ffffff;
+    --bg-alt:#f7f8fa;
+    --accent:#2f6f8f;     /* muted teal-blue, a quiet RF nod */
+    --maxw:760px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    font-size:16px;
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+
+  /* ---------- Navbar ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,255,255,0.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:var(--maxw);margin:0 auto;padding:0 24px;
+    display:flex;align-items:center;justify-content:space-between;
+    height:52px;
+  }
+  .nav-name{
+    font-family:'Spectral',Georgia,serif;font-weight:600;
+    font-size:0.98rem;color:var(--navy);text-decoration:none;letter-spacing:0.01em;
+  }
+  .nav-links{display:flex;gap:22px;}
+  .nav-links a{
+    font-size:0.86rem;color:var(--muted);text-decoration:none;
+    border-bottom:1px solid transparent;padding-bottom:2px;transition:color .15s,border-color .15s;
+  }
+  .nav-links a:hover{color:var(--accent);border-bottom-color:var(--accent);}
+  section{scroll-margin-top:64px;}
+  @media(max-width:600px){
+    .nav-name{display:none;}
+    .nav-inner{justify-content:center;}
+    .nav-links{gap:16px;flex-wrap:wrap;justify-content:center;}
+    .nav-links a{font-size:0.8rem;}
+  }
+
+  /* ---------- Header ---------- */
+  header{padding:64px 0 40px;}
+  .head-top{display:flex;align-items:center;gap:26px;flex-wrap:wrap;}
+  .avatar{
+    width:104px;height:104px;border-radius:50%;object-fit:cover;
+    border:1px solid var(--line);flex-shrink:0;background:var(--bg-alt);
+  }
+  h1{
+    font-family:'Spectral',Georgia,serif;
+    font-weight:600;font-size:2.1rem;letter-spacing:-0.01em;
+    margin:0 0 6px;line-height:1.15;
+  }
+  h1 .nick{color:var(--muted);font-weight:400;font-size:1.4rem;}
+  .role{color:var(--navy);font-weight:500;font-size:1.02rem;margin:0 0 2px;}
+  .advisor{color:var(--muted);font-size:0.95rem;font-style:italic;}
+  .contact{
+    margin-top:16px;font-size:0.9rem;color:var(--muted);
+    display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;
+  }
+  .contact a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .15s;}
+  .contact a:hover{border-bottom-color:var(--accent);}
+  .contact span.sep{color:var(--line);}
+
+  /* ---------- Sections ---------- */
+  section{padding:34px 0;border-top:1px solid var(--line);}
+  section:first-of-type{border-top:none;}
+  h2{
+    font-family:'Spectral',Georgia,serif;
+    font-weight:600;font-size:1.06rem;letter-spacing:0.02em;
+    text-transform:uppercase;color:var(--navy);
+    margin:0 0 18px;
+    display:flex;align-items:center;gap:12px;
+  }
+  h2::after{
+    content:"";flex:1;height:1px;
+    background:linear-gradient(90deg,var(--line),transparent);
+  }
+  p{margin:0 0 14px;}
+  p:last-child{margin-bottom:0;}
+  a.inline{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line);}
+  a.inline:hover{border-bottom-color:var(--accent);}
+
+  /* ---------- Entry blocks ---------- */
+  .entry{margin-bottom:22px;}
+  .entry:last-child{margin-bottom:0;}
+  .entry-head{display:flex;justify-content:space-between;gap:16px;align-items:baseline;flex-wrap:wrap;}
+  .entry-title{font-weight:600;font-size:1rem;color:var(--ink);}
+  .entry-date{font-size:0.85rem;color:var(--muted);white-space:nowrap;}
+  .entry-sub{font-size:0.92rem;color:var(--muted);font-style:italic;margin:1px 0 6px;}
+  .entry p{font-size:0.96rem;margin:0;}
+
+  /* ---------- Interests / tags ---------- */
+  .tags{display:flex;flex-wrap:wrap;gap:8px;}
+  .tag{
+    font-size:0.86rem;color:var(--navy);
+    background:var(--bg-alt);border:1px solid var(--line);
+    padding:4px 12px;border-radius:2px;
+  }
+
+  /* ---------- Publications ---------- */
+  ol.pubs{margin:0;padding:0;list-style:none;counter-reset:pub;}
+  ol.pubs li{
+    position:relative;padding-left:30px;margin-bottom:16px;font-size:0.95rem;
+    counter-increment:pub;
+  }
+  ol.pubs li:last-child{margin-bottom:0;}
+  ol.pubs li::before{
+    content:"["counter(pub)"]";
+    position:absolute;left:0;top:0;color:var(--accent);
+    font-variant-numeric:tabular-nums;font-weight:500;font-size:0.85rem;
+  }
+  ol.pubs .venue{font-style:italic;color:var(--muted);}
+  ol.pubs .me{font-weight:600;}
+
+  /* ---------- Currently building ---------- */
+  ul.build{margin:0;padding:0;list-style:none;}
+  ul.build li{
+    position:relative;padding-left:18px;margin-bottom:10px;font-size:0.96rem;
+  }
+  ul.build li:last-child{margin-bottom:0;}
+  ul.build li::before{
+    content:"";position:absolute;left:0;top:0.7em;
+    width:6px;height:6px;border:1px solid var(--accent);border-radius:50%;
+  }
+  ul.build strong{color:var(--navy);font-weight:600;}
+
+  /* ---------- Gallery ---------- */
+  .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:18px;}
+  .photo-card{border:1px solid var(--line);border-radius:3px;overflow:hidden;background:var(--bg-alt);}
+  .photo-card img{width:100%;height:180px;object-fit:cover;display:block;}
+  .photo-card .cap{padding:10px 12px;font-size:0.85rem;color:var(--muted);line-height:1.5;}
+
+  /* ---------- CV button ---------- */
+  .cv-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .cv-btn{
+    display:inline-block;padding:9px 20px;
+    background:var(--navy);color:#fff;text-decoration:none;
+    font-size:0.92rem;font-weight:500;border-radius:3px;
+    transition:background .15s;
+  }
+  .cv-btn:hover{background:var(--navy-soft);}
+
+  /* ---------- Footer ---------- */
+  footer{
+    padding:30px 0 50px;border-top:1px solid var(--line);
+    font-size:0.82rem;color:var(--muted);text-align:center;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media(max-width:560px){
+    header{padding:44px 0 30px;}
+    h1{font-size:1.7rem;}
+    h1 .nick{font-size:1.2rem;}
+    .head-top{gap:18px;}
+    .avatar{width:84px;height:84px;}
+  }
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Navbar ===== -->
+<nav>
+  <div class="nav-inner">
+    <a href="#top" class="nav-name">Kun Pang</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#publications">Publications</a>
+      <a href="#experience">Research</a>
+      <a href="#projects">Projects</a>
+      <a href="#gallery">Life</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap" id="top">
+
+  <!-- ===== Header ===== -->
+  <header>
+    <div class="head-top">
+      <img class="avatar" src="1.png" alt="Kun Pang (Hendrix)">
+      <div>
+        <h1>Kun Pang <span class="nick">(Hendrix)</span></h1>
+        <p class="role">Incoming Ph.D. Student · ECE · University of Virginia (Fall 2026)</p>
+        <p class="advisor">Advised by Prof. Steven Bowers</p>
+      </div>
+    </div>
+    <div class="contact">
+      <a href="mailto:hendrixmathsmtk@outlook.com">hendrixmathsmtk@outlook.com</a>
+      <span class="sep">·</span>
+      <a href="https://orcid.org/0009-0000-3722-6597" target="_blank" rel="noopener">ORCID</a>
+      <span class="sep">·</span>
+      <a href="CV_HendrixPang.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+    </div>
+  </header>
+
+  <!-- ===== About ===== -->
+  <section id="about">
+    <h2>About</h2>
+    <p>I have a strong foundation in RF/electromagnetics and communication systems, and I am now
+    transitioning toward <strong>RFIC design and integrated photonics</strong>. My hands-on work spans
+    millimeter-wave simulation, antenna and metasurface design, and software-defined radio.</p>
+    <p>I am building circuit- and photonic-level foundations to bridge system- and EM-level intuition
+    with integrated circuit and photonic design — the place where my communications background meets
+    the device physics I want to master next.</p>
+  </section>
+
+  <!-- ===== Research Interests ===== -->
+  <section id="interests">
+    <h2>Research Interests</h2>
+    <div class="tags">
+      <span class="tag">RFIC Design</span>
+      <span class="tag">Integrated Photonics</span>
+      <span class="tag">Millimeter-wave Systems</span>
+      <span class="tag">RF / Analog Circuits</span>
+      <span class="tag">Wireless Communications</span>
+    </div>
+  </section>
+
+  <!-- ===== Publications ===== -->
+  <section id="publications">
+    <h2>Publications</h2>
+    <ol class="pubs">
+      <li>
+        <span class="me">K. Pang</span>, Y. Chen, H. Lu, B. Lei, S. Xiao.
+        "Enhanced Linear Phase Control of a K-Band RIS via Coupled Hollow I-Shaped Resonators."
+        <span class="venue">EuCAP 2026</span>, Dublin.
+      </li>
+      <li>
+        B. Lei, …, <span class="me">K. Pang</span>, et al.
+        "Radiation performance analysis of asymmetric-structured self-biased magnetoelectric antennas
+        via multi-field coupling modeling."
+        <span class="venue">Smart Materials and Structures</span>, 2025.
+        <a class="inline" href="https://doi.org/10.1088/1361-665X/ae1beb" target="_blank" rel="noopener">DOI</a>
+      </li>
+      <li>
+        B. Lei, …, <span class="me">K. Pang</span>, et al.
+        "Theoretical analysis on radiation performance of magnetoelectric antennas considering
+        eddy-current loss and quasistatic hysteresis effect."
+        <span class="venue">Journal of Applied Physics</span>, 138(4), 044101, 2025.
+        <a class="inline" href="https://doi.org/10.1063/5.0282234" target="_blank" rel="noopener">DOI</a>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ===== Research Experience ===== -->
+  <section id="experience">
+    <h2>Research Experience</h2>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Reconfigurable Intelligent Surfaces (RIS) for mm-Wave Systems</span>
+        <span class="entry-date">Dec 2024 – Dec 2025</span>
+      </div>
+      <p class="entry-sub">Prof. Shaoqiu Xiao, Sun Yat-sen University</p>
+      <p>Designed K-band (20–26 GHz) PIN-diode RIS unit cells achieving ~360° phase tuning, &lt;1.6 dB
+      reflection loss, and near-ideal linearity (R² = 0.9991) in HFSS. First-author paper at EuCAP 2026.</p>
+    </div>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Microstrip Antenna Array Design</span>
+        <span class="entry-date">Mar 2024 – Dec 2024</span>
+      </div>
+      <p class="entry-sub">Prof. Shaoqiu Xiao, Sun Yat-sen University</p>
+      <p>4-element patch array at 5.8 GHz (&lt;−20 dB isolation) for MIMO; validated via anechoic-chamber
+      and S-parameter measurements.</p>
+    </div>
+  </section>
+
+  <!-- ===== Selected Projects ===== -->
+  <section id="projects">
+    <h2>Selected Projects</h2>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Dual Circularly-Polarized Satellite Antenna (13–14.5 GHz)</span>
+        <span class="entry-date">Oct 2025 – Present</span>
+      </div>
+      <p class="entry-sub">Prof. Shaoqiu Xiao, Sun Yat-sen University</p>
+      <p>Multilayer dual-CP antenna with isolation-enhanced structure; optimization, simulation, and testing.</p>
+    </div>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">BPSK Digital Voice Transmission System (SDR)</span>
+        <span class="entry-date">May 2025</span>
+      </div>
+      <p class="entry-sub">Lingte Cup National RF Competition — First Prize</p>
+      <p>End-to-end voice link on PlutoSDR + GNU Radio: channel coding, BPSK modulation, and equalization
+      (BER &lt; 10⁻⁶).</p>
+    </div>
+  </section>
+
+  <!-- ===== Currently Building ===== -->
+  <section id="building">
+    <h2>Currently Building</h2>
+    <ul class="build">
+      <li><strong>RFIC:</strong> self-studying Razavi, <em>RF Microelectronics</em> (nonlinearity, noise,
+      phase noise); Cadence Virtuoso / Spectre (in progress).</li>
+      <li><strong>Foundations:</strong> control theory, stochastic processes, and probability for noise
+      analysis; integrated-photonics device concepts.</li>
+    </ul>
+  </section>
+
+  <!-- ===== Life / Gallery ===== -->
+  <section id="gallery">
+    <h2>Life</h2>
+    <div class="gallery">
+      <div class="photo-card">
+        <img src="2.png" alt="">
+        <div class="cap">A moment outside the lab. <!-- replace with your own caption --></div>
+      </div>
+      <!-- To add more photos, copy the block below and change src + caption:
+      <div class="photo-card">
+        <img src="3.png" alt="">
+        <div class="cap">Your caption here.</div>
+      </div>
+      -->
+    </div>
+  </section>
+
+  <!-- ===== CV / Contact ===== -->
+  <section id="contact">
+    <h2>Contact &amp; CV</h2>
+    <p>Open to discussions, collaborations, and research opportunities.</p>
+    <div class="cv-row">
+      <a class="cv-btn" href="CV_HendrixPang.pdf" target="_blank" rel="noopener">Download CV</a>
+      <a class="inline" href="mailto:hendrixmathsmtk@outlook.com">hendrixmathsmtk@outlook.com</a>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  © 2026 Kun Pang (Hendrix) · Built with GitHub Pages
+</footer>
+
+</body>
+</html>

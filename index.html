@@ -102,8 +102,20 @@
   }
   p{margin:0 0 14px;}
   p:last-child{margin-bottom:0;}
+  p.lead{
+    font-family:'Spectral',Georgia,serif;
+    font-size:1.18rem;line-height:1.5;color:var(--navy);
+    font-weight:400;margin-bottom:18px;
+  }
   a.inline{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line);}
   a.inline:hover{border-bottom-color:var(--accent);}
+
+  /* ---------- Fade-in on scroll ---------- */
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease;}
+  .reveal.visible{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+  }
 
   /* ---------- Entry blocks ---------- */
   .entry{margin-bottom:22px;}
@@ -214,17 +226,25 @@
       </div>
     </div>
     <div class="contact">
-      <a href="mailto:hendrixmathsmtk@outlook.com">hendrixmathsmtk@outlook.com</a>
+      <a href="mailto:hendrixmathsmtk@outlook.com">Email</a>
+      <span class="sep">·</span>
+      <a href="mailto:wpu6gw@virginia.edu">UVA Email</a>
+      <span class="sep">·</span>
+      <a href="https://scholar.google.com/citations?user=VJMg1FgAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+      <span class="sep">·</span>
+      <a href="https://www.linkedin.com/in/kun-pang-a31234397/" target="_blank" rel="noopener">LinkedIn</a>
       <span class="sep">·</span>
       <a href="https://orcid.org/0009-0000-3722-6597" target="_blank" rel="noopener">ORCID</a>
       <span class="sep">·</span>
-      <a href="CV_HendrixPang.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+      <a href="CV_HendrixPang.pdf" target="_blank" rel="noopener">CV</a>
     </div>
   </header>
 
   <!-- ===== About ===== -->
   <section id="about">
     <h2>About</h2>
+    <p class="lead">I work at the seam between communication systems and the hardware that carries them —
+    coming from RF and electromagnetics, and moving toward the circuits and photonics underneath.</p>
     <p>I have a strong foundation in RF/electromagnetics and communication systems, and I am now
     transitioning toward <strong>RFIC design and integrated photonics</strong>. My hands-on work spans
     millimeter-wave simulation, antenna and metasurface design, and software-defined radio.</p>
@@ -350,7 +370,9 @@
     <p>Open to discussions, collaborations, and research opportunities.</p>
     <div class="cv-row">
       <a class="cv-btn" href="CV_HendrixPang.pdf" target="_blank" rel="noopener">Download CV</a>
-      <a class="inline" href="mailto:hendrixmathsmtk@outlook.com">hendrixmathsmtk@outlook.com</a>
+      <a class="inline" href="mailto:hendrixmathsmtk@outlook.com">Email</a>
+      <a class="inline" href="https://scholar.google.com/citations?user=VJMg1FgAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+      <a class="inline" href="https://www.linkedin.com/in/kun-pang-a31234397/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </section>
 
@@ -359,6 +381,22 @@
 <footer>
   © 2026 Kun Pang (Hendrix) · Built with GitHub Pages
 </footer>
+
+<script>
+  // Subtle fade-in as sections scroll into view
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('section').forEach(s => {
+    s.classList.add('reveal');
+    obs.observe(s);
+  });
+</script>
 
 </body>
 </html>

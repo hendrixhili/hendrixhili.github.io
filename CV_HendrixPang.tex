@@ -1,0 +1,108 @@
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage[letterpaper,top=0.35in,bottom=0.35in,left=0.5in,right=0.5in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+
+\definecolor{linkblue}{RGB}{0,51,153}
+\hypersetup{colorlinks=true,urlcolor=linkblue,linkcolor=linkblue}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\linespread{0.94}
+
+\titleformat{\section}{\normalsize\bfseries}{}{0em}{}[\vspace{-9pt}\rule{\linewidth}{0.4pt}]
+\titlespacing*{\section}{0pt}{3pt}{1pt}
+
+\setlist[itemize]{leftmargin=1.2em,topsep=1pt,itemsep=0pt,parsep=0pt,partopsep=0pt}
+
+% \entry{Title}{Date/Location}{Subtitle}{Right subtitle}
+\newcommand{\entry}[4]{%
+  \textbf{#1}\hfill #2\\
+  #3\hfill #4\par}
+\newcommand{\gap}{\vspace{2pt}}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE\textsc{Kun Pang (Hendrix)}}\\[2pt]
+  Ph.D.\ Student, Electrical \& Computer Engineering $\cdot$ University of Virginia\\[1pt]
+  \href{mailto:hendrix@virginia.edu}{hendrix@virginia.edu} $\cdot$
+  \href{https://hendrixhili.github.io}{hendrixhili.github.io} $\cdot$
+  ORCID: \href{https://orcid.org/0009-0000-3722-6597}{0009-0000-3722-6597}
+\end{center}
+\vspace{-8pt}
+
+\section{Education}
+\entry{University of Virginia\textnormal{ --- Ph.D.\ in Electrical \& Computer Engineering}}{Charlottesville, VA, USA}
+  {Advisor: Prof.\ Steven Bowers $\cdot$ Research focus: RFIC design}{Aug 2026 -- Present}
+\gap
+\entry{Sun Yat-sen University\textnormal{ --- B.Eng.\ in Information Engineering (Elite Class)}}{Guangzhou, China}
+  {GPA: 3.7/4.0 $\cdot$ TOEFL: 104}{2022 -- 2026}
+Selected coursework (4.0/4.0): Electromagnetic Fields and Waves, Digital Signal Processing, Communication Theory, Radar, Automatic Control Theory\par
+
+\section{Research Experience}
+\entry{K-Band Reconfigurable Intelligent Surface (RIS) for Millimeter-Wave Systems}{Dec 2024 -- Dec 2025}
+  {\textit{Prof.\ Shaoqiu Xiao, Sun Yat-sen University}}{}
+\begin{itemize}
+  \item Designed a multilayer K-band RIS unit cell (20--26\,GHz) featuring two rotationally symmetric hollow I-shaped resonant layers on RO3003 substrate, optimized via HFSS with Floquet-port simulation; unit size 4$\times$4\,mm ($\approx$0.30$\lambda$ at 22\,GHz)
+  \item Achieved $\sim$360$^\circ$ phase tuning range with $\sim$120$^\circ$ step per coding state, reflection loss $<$1.6\,dB for four primary states, and excellent phase linearity ($R^2 = 0.9991$, RMSE $= 0.515^\circ$) within the 22--23\,GHz operating band
+  \item First-author paper published at EuCAP 2026, Dublin (see Publications)
+\end{itemize}
+\gap
+\entry{Microstrip Patch Antenna Array Design}{Mar 2024 -- Dec 2024}
+  {\textit{Prof.\ Shaoqiu Xiao, Sun Yat-sen University}}{}
+\begin{itemize}
+  \item Designed and fabricated a 4-element patch array at 5.8\,GHz (isolation $< -20$\,dB); characterized prototype via VNA measurements and anechoic chamber radiation testing
+\end{itemize}
+
+\section{Engineering Projects}
+\entry{Multilayer Dual Circularly Polarized Satellite Antenna (13--14.5\,GHz)}{Oct 2025 -- Mar 2026}
+  {\textit{Prof.\ Shaoqiu Xiao, Sun Yat-sen University}}{}
+\begin{itemize}
+  \item Designed a Ku-band dual-CP multilayer satellite antenna with isolation-enhanced structure; performed full-cycle HFSS optimization, simulation, and prototype testing
+\end{itemize}
+\gap
+\entry{UAV Communication Link Modelling}{Dec 2025}
+  {\textit{Prof.\ Xiang Chen, Sun Yat-sen University}}{}
+\begin{itemize}
+  \item Built a full end-to-end link simulator in MATLAB (QPSK, Turbo coding at rates 1/3 and 2/3, CRC-16, pilot-based equalization) to validate a proposed UAV frame structure
+  \item Modelled a 3-path multipath fading channel with delay spread up to 400\,ns and max Doppler 737\,Hz; confirmed frame integrity via BER/BLER statistics
+\end{itemize}
+\gap
+\entry{BPSK Digital Voice Transmission System}{May 2025}
+  {\textit{Prof.\ Xiang Chen $\cdot$ Lingte Cup National SDR \& Communications Design Competition}}{}
+\begin{itemize}
+  \item Built a real-time end-to-end digital voice link using PlutoSDR and GNU Radio: channel coding, BPSK modulation, matched filtering, and equalization; BER $< 10^{-6}$
+\end{itemize}
+\gap
+\entry{Satellite Communication Terminal Support}{Oct 2025}
+  {\textit{Prof.\ Xiang Chen, Industry Collaboration}}{}
+On-site satellite modem link setup and RF testing; one of the few undergraduates working alongside graduate and doctoral researchers in an industry field environment.\par
+
+\section{Publications}
+\begin{enumerate}[leftmargin=1.5em,topsep=1pt,itemsep=0pt,parsep=0pt]
+  \item \textbf{K.~Pang}, Y.~Chen, H.~Lu, B.~Lei, and S.~Xiao, ``Enhanced Linear Phase Control of a K-Band Reconfigurable Intelligent Surface via Coupled Hollow I-Shaped Resonators,'' \textit{Proc.\ EuCAP 2026}, Dublin, Ireland, pp.~1--5, 2026. DOI: \href{https://doi.org/10.23919/EuCAP68105.2026.11612526}{10.23919/EuCAP68105.2026.11612526}
+  \item B.~Lei, Y.~Li, G.~Xu, C.~Gao, \textbf{K.~Pang}, Y.~Fu, Z.~Yu, Y.~Shi, and S.~Xiao, ``Radiation performance analysis of asymmetric-structured self-biased magnetoelectric antennas via multi-field coupling modeling,'' \textit{Smart Materials and Structures}, 2025. DOI: \href{https://doi.org/10.1088/1361-665X/ae1beb}{10.1088/1361-665X/ae1beb}
+  \item B.~Lei, Y.~Li, G.~Xu, C.~Gao, \textbf{K.~Pang}, D.~Ye, Y.~Shi, and S.~Xiao, ``Theoretical analysis on radiation performance of magnetoelectric antennas considering eddy-current loss and quasistatic hysteresis effect,'' \textit{Journal of Applied Physics}, vol.~138, no.~4, p.~044101, 2025. DOI: \href{https://doi.org/10.1063/5.0282234}{10.1063/5.0282234}
+\end{enumerate}
+
+\section{Awards \& Honors}
+\begin{itemize}
+  \item First Prize, Lingte Cup National SDR \& Communications Design Competition \hfill 2025
+  \item Outstanding Student Leader Award, Sun Yat-sen University \hfill 2026
+  \item Excellent Student Scholarship, Sun Yat-sen University \hfill 2023, 2025
+\end{itemize}
+
+\section{Technical Skills \& Languages}
+\begin{itemize}
+  \item \textbf{RF \& EM Simulation:} HFSS, ADS $\cdot$ \textbf{RF Lab \& Measurement:} VNA, Anechoic chamber
+  \item \textbf{SDR \& Communications:} GNU Radio, PlutoSDR, BPSK/QPSK/QAM, channel coding
+  \item \textbf{Programming:} MATLAB/Simulink, Python, C++, Git
+  \item \textbf{Languages:} English -- Proficient $\cdot$ Chinese (Mandarin) -- Native
+\end{itemize}
+
+\end{document}

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kun Pang (Hendrix) — RFIC / Photonics</title>
-<meta name="description" content="Kun Pang (Hendrix) — Incoming Ph.D. Student in ECE at the University of Virginia. Research in RFIC design, integrated photonics, and millimeter-wave systems.">
+<meta name="description" content="Kun Pang (Hendrix) — Ph.D. Student in ECE at the University of Virginia. Research in RFIC design, integrated photonics, and millimeter-wave systems.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -58,9 +58,11 @@
   section{scroll-margin-top:64px;}
   @media(max-width:600px){
     .nav-name{display:none;}
-    .nav-inner{justify-content:center;}
-    .nav-links{gap:16px;flex-wrap:wrap;justify-content:center;}
+    /* links wrap to two rows here, so let the bar grow instead of clipping */
+    .nav-inner{justify-content:center;height:auto;padding:8px 16px;}
+    .nav-links{gap:4px 16px;flex-wrap:wrap;justify-content:center;}
     .nav-links a{font-size:0.8rem;}
+    section{scroll-margin-top:84px;}
   }
 
   /* ---------- Header ---------- */
@@ -78,6 +80,8 @@
   h1 .nick{color:var(--muted);font-weight:400;font-size:1.4rem;}
   .role{color:var(--navy);font-weight:500;font-size:1.02rem;margin:0 0 2px;}
   .advisor{color:var(--muted);font-size:0.95rem;font-style:italic;}
+  .advisor a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line);}
+  .advisor a:hover{border-bottom-color:var(--accent);}
   .contact{
     margin-top:16px;font-size:0.9rem;color:var(--muted);
     display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;
@@ -149,17 +153,14 @@
   ol.pubs .venue{font-style:italic;color:var(--muted);}
   ol.pubs .me{font-weight:600;}
 
-  /* ---------- Currently building ---------- */
-  ul.build{margin:0;padding:0;list-style:none;}
-  ul.build li{
-    position:relative;padding-left:18px;margin-bottom:10px;font-size:0.96rem;
+  /* ---------- News ---------- */
+  ul.news{margin:0;padding:0;list-style:none;}
+  ul.news li{display:flex;gap:16px;margin-bottom:10px;font-size:0.95rem;}
+  ul.news li:last-child{margin-bottom:0;}
+  ul.news .news-date{
+    flex:0 0 72px;color:var(--accent);font-weight:500;font-size:0.85rem;
+    font-variant-numeric:tabular-nums;padding-top:1px;
   }
-  ul.build li:last-child{margin-bottom:0;}
-  ul.build li::before{
-    content:"";position:absolute;left:0;top:0.7em;
-    width:6px;height:6px;border:1px solid var(--accent);border-radius:50%;
-  }
-  ul.build strong{color:var(--navy);font-weight:600;}
 
   /* ---------- Gallery ---------- */
   .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:18px;}
@@ -204,6 +205,7 @@
     <a href="#top" class="nav-name">Kun Pang</a>
     <div class="nav-links">
       <a href="#about">About</a>
+      <a href="#news">News</a>
       <a href="#publications">Publications</a>
       <a href="#experience">Research</a>
       <a href="#projects">Projects</a>
@@ -218,11 +220,11 @@
   <!-- ===== Header ===== -->
   <header>
     <div class="head-top">
-      <img class="avatar" src="1.png" alt="Kun Pang (Hendrix)">
+      <img class="avatar" src="1.jpg" alt="Kun Pang (Hendrix)">
       <div>
         <h1>Kun Pang <span class="nick">(Hendrix)</span></h1>
-        <p class="role">Incoming Ph.D. Student · ECE · University of Virginia (Fall 2026)</p>
-        <p class="advisor">Advised by Prof. Steven Bowers</p>
+        <p class="role">Ph.D. Student · ECE · University of Virginia</p>
+        <p class="advisor">Advised by <a href="https://engineering.virginia.edu/labs-groups/integrated-electromagnetics-circuits-and-systems-lab" target="_blank" rel="noopener">Prof. Steven Bowers</a></p>
       </div>
     </div>
     <div class="contact">
@@ -257,12 +259,22 @@
   <section id="interests">
     <h2>Research Interests</h2>
     <div class="tags">
-      <span class="tag">RFIC Design</span>
+      <span class="tag">RF / Analog IC Design</span>
       <span class="tag">Integrated Photonics</span>
       <span class="tag">Millimeter-wave Systems</span>
-      <span class="tag">RF / Analog Circuits</span>
       <span class="tag">Wireless Communications</span>
     </div>
+  </section>
+
+  <!-- ===== News ===== -->
+  <section id="news">
+    <h2>News</h2>
+    <ul class="news">
+      <li><span class="news-date">Aug 2026</span><span>Started my Ph.D. in ECE at the University of Virginia, advised by Prof. Steven Bowers.</span></li>
+      <li><span class="news-date">Jun 2026</span><span>Received my B.Eng. in Information Engineering from Sun Yat-sen University.</span></li>
+      <li><span class="news-date">Apr 2026</span><span>Our K-band RIS paper appeared at EuCAP 2026 in Dublin.</span></li>
+      <li><span class="news-date">May 2025</span><span>First Prize, Lingte Cup National RF Competition, for a BPSK voice link on PlutoSDR.</span></li>
+    </ul>
   </section>
 
   <!-- ===== Publications ===== -->
@@ -271,8 +283,10 @@
     <ol class="pubs">
       <li>
         <span class="me">K. Pang</span>, Y. Chen, H. Lu, B. Lei, S. Xiao.
-        "Enhanced Linear Phase Control of a K-Band RIS via Coupled Hollow I-Shaped Resonators."
-        <span class="venue">EuCAP 2026</span>, Dublin.
+        "Enhanced Linear Phase Control of a K-Band Reconfigurable Intelligent Surface via Coupled
+        Hollow I-Shaped Resonators."
+        <span class="venue">Proc. EuCAP 2026</span>, Dublin, Ireland, pp. 1–5.
+        <a class="inline" href="https://doi.org/10.23919/EuCAP68105.2026.11612526" target="_blank" rel="noopener">DOI</a>
       </li>
       <li>
         B. Lei, …, <span class="me">K. Pang</span>, et al.
@@ -320,7 +334,7 @@
     <div class="entry">
       <div class="entry-head">
         <span class="entry-title">Dual Circularly-Polarized Satellite Antenna (13–14.5 GHz)</span>
-        <span class="entry-date">Oct 2025 – Present</span>
+        <span class="entry-date">Oct 2025 – Mar 2026</span>
       </div>
       <p class="entry-sub">Prof. Shaoqiu Xiao, Sun Yat-sen University</p>
       <p>Multilayer dual-CP antenna with isolation-enhanced structure; optimization, simulation, and testing.</p>
@@ -336,32 +350,22 @@
     </div>
   </section>
 
-  <!-- ===== Currently Building ===== -->
-  <section id="building">
-    <h2>Currently Building</h2>
-    <ul class="build">
-      <li><strong>RFIC:</strong> self-studying Razavi, <em>RF Microelectronics</em> (nonlinearity, noise,
-      phase noise); Cadence Virtuoso / Spectre (in progress).</li>
-      <li><strong>Foundations:</strong> control theory, stochastic processes, and probability for noise
-      analysis; integrated-photonics device concepts.</li>
-    </ul>
-  </section>
-
   <!-- ===== Life / Gallery ===== -->
   <section id="gallery">
     <h2>Life</h2>
     <div class="gallery">
       <div class="photo-card">
-        <img src="2.png" alt="">
+        <img src="2.jpg" alt="">
         <div class="cap">A moment in winter 2026.</div>
       </div>
       <div class="photo-card">
-        <img src="3.png" alt="">
+        <img src="3.jpg" alt="">
         <div class="cap">With my best friend outside SYSU.</div>
       </div>
-      <!-- To add more photos, copy the block below and change src + caption:
+      <!-- To add more photos, copy the block below and change src + caption
+           (resize to ~1200 px wide JPG first; phone originals are several MB):
       <div class="photo-card">
-        <img src="4.png" alt="">
+        <img src="4.jpg" alt="">
         <div class="cap">Your caption here.</div>
       </div>
       -->
